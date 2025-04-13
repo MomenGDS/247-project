@@ -3,38 +3,7 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-
-interface Service {
-  id: number;
-  name: string;
-  logo: string;
-  description: string;
-  website: string;
-}
-
-const services: Service[] = [
-  {
-    id: 1,
-    name: 'Amer',
-    logo: '/lovable-uploads/f9e6fefe-cf24-4223-ab43-eaf26d20d6a6.png',
-    description: 'Amer offers comprehensive visa and residency services, including applications, renewals, and status inquiries for UAE residents and visitors.',
-    website: 'https://www.amer.ae',
-  },
-  {
-    id: 2,
-    name: 'Tasheel',
-    logo: '/lovable-uploads/f98ccb7d-4913-4d5e-9a09-698657d276ba.png',
-    description: 'Tasheel provides streamlined business services, including company registration, licensing, and document processing for UAE enterprises.',
-    website: 'https://www.tasheel.ae',
-  },
-  {
-    id: 3,
-    name: 'Tawjeeh',
-    logo: '/lovable-uploads/706a4e06-d067-4532-b48e-adf06c63e39a.png',
-    description: 'Tawjeeh delivers guidance and orientation services for UAE newcomers, including cultural orientation and local regulations assistance.',
-    website: 'https://www.tawjeeh.ae',
-  }
-];
+import { services } from '@/data/services';
 
 const ServicesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -49,6 +18,19 @@ const ServicesCarousel = () => {
     const isLastSlide = currentIndex === services.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
+  };
+
+  // Function to handle image loading errors
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, serviceName: string, backupSrc: string) => {
+    const target = e.target as HTMLImageElement;
+    if (target.src !== backupSrc) {
+      target.onerror = null; // Prevent infinite error loop
+      target.src = backupSrc;
+    } else {
+      // If backup also fails, use a text placeholder
+      target.onerror = null;
+      target.src = `https://via.placeholder.com/150/FFFFFF/000000?text=${serviceName}`;
+    }
   };
 
   return (
@@ -70,11 +52,7 @@ const ServicesCarousel = () => {
                         src={service.logo} 
                         alt={`${service.name} logo`}
                         className="w-32 h-auto object-contain"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.onerror = null;
-                          target.src = 'https://via.placeholder.com/150?text=' + service.name;
-                        }}
+                        onError={(e) => handleImageError(e, service.name, service.backupLogo)}
                       />
                     </div>
                     <div className="w-full md:w-2/3 text-center md:text-left">

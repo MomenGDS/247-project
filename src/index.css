@@ -33,22 +33,12 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* UAE Colors */
+    --uae-red: 358 85% 53%;
+    --uae-green: 145 100% 23%;
+    --uae-black: 0 0% 0%;
+    --uae-white: 0 0% 100%;
   }
 
   .dark {
@@ -207,4 +197,29 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Improved mobile responsiveness */
+@media (max-width: 640px) {
+  .service-card {
+    padding: 1rem;
+  }
+  
+  .uae-button {
+    padding: 0.5rem 1rem;
+  }
+  
+  .ai-chatbot-bubble {
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* Make sure testimonials don't get too crowded on mobile */
+@media (max-width: 480px) {
+  .marquee-content > div {
+    margin: 0 0.5rem;
+  }
 }

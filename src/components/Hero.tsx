@@ -11,11 +11,16 @@ const Hero = () => {
       
       <div className={cn("max-w-4xl mx-auto animate-fade-in relative z-10")}>
         <div className="mb-8 transform transition-all">
-          {/* Center logo */}
+          {/* Center logo with fallback */}
           <img 
             src="/lovable-uploads/0d0f4aff-13fc-4e73-8ef4-bc7b1f7bdc38.png" 
             alt="24 Seven Government Transactions Center" 
             className="w-48 h-auto mx-auto mb-8 drop-shadow-xl"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.onerror = null;
+              target.src = './images/center-logo.svg';
+            }}
           />
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-uae-red via-uae-black to-uae-green bg-clip-text text-transparent">
             Welcome to 24 Seven Government Transactions Center
