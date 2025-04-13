@@ -8,12 +8,15 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
       {/* Hero Section */}
       <Hero />
       
       {/* Services Carousel */}
-      <ServicesCarousel />
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-uae-red/5 to-uae-green/5 pointer-events-none"></div>
+        <ServicesCarousel />
+      </div>
       
       {/* Google Reviews */}
       <GoogleReviews />

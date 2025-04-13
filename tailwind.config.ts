@@ -113,14 +113,17 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'scroll-left': 'scroll-left 30s linear infinite',
-				'scroll-right': 'scroll-right 30s linear infinite',
+				'scroll-left': 'scroll-left 40s linear infinite',
+				'scroll-right': 'scroll-right 40s linear infinite',
 				'fade-in': 'fade-in 0.8s ease-out',
 				'slide-in': 'slide-in 0.6s ease-out'
 			},
 			backgroundImage: {
 				'uae-gradient': 'linear-gradient(135deg, #FFFFFF 0%, #EE161F 50%, #00732F 100%)',
 			},
+			backdropBlur: {
+				xs: '2px',
+			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
