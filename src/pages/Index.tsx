@@ -12,11 +12,8 @@ const Index = () => {
       {/* Hero Section */}
       <Hero />
       
-      {/* Services Carousel */}
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-uae-red/5 to-uae-green/5 pointer-events-none"></div>
-        <ServicesCarousel />
-      </div>
+      {/* Services Carousel - Removed background gradient to match design */}
+      <ServicesCarousel />
       
       {/* Google Reviews */}
       <GoogleReviews />
