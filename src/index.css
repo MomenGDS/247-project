@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,92 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(238,22,31,0.1) 50%, rgba(0,115,47,0.1) 100%);
+}
+
+.uae-button {
+  @apply px-6 py-3 font-semibold text-white rounded-md transition-all duration-300 ease-in-out;
+  background: linear-gradient(90deg, #EE161F 0%, #00732F 100%);
+  background-size: 200% auto;
+}
+
+.uae-button:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.service-card {
+  @apply bg-white p-6 rounded-xl shadow-lg transition-all duration-300 ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.marquee-container {
+  @apply overflow-hidden whitespace-nowrap relative;
+  width: 100%;
+}
+
+.marquee-content {
+  @apply flex items-center;
+  min-width: 100%;
+}
+
+.marquee-content.scroll-left {
+  animation: scroll-left 40s linear infinite;
+}
+
+.marquee-content.scroll-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+.ai-chatbot-bubble {
+  @apply fixed bottom-8 right-8 w-16 h-16 rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all duration-300 ease-in-out;
+  background: linear-gradient(135deg, #EE161F 0%, #00732F 100%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(238, 22, 31, 0.7);
+  }
+  
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(238, 22, 31, 0);
+  }
+  
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(238, 22, 31, 0);
+  }
+}
+
+.star-rating {
+  @apply text-yellow-500;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
